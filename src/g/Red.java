@@ -1,4 +1,8 @@
 package g;
 
-public class Red {
+public class Red implements Runnable{
+    @Override
+    public void run() {
+
+    }
 }
