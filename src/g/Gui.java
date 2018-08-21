@@ -25,39 +25,25 @@ public class Gui extends JFrame {
         add(islemButon);
         add(label);
 
-        upload.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Action();
+        upload.addActionListener(e -> Action());
+
+        islemButon.addActionListener(e -> {
+            if(uploaded){
+                BInterpolation bInterpolation=new BInterpolation();
+                newImage=bInterpolation.scale(image,1.6f,1.6f);
+                File newFile=new File("larger2.jpg");
+                try {
+                    ImageIO.write(newImage,"jpg",newFile);
+                    System.out.print("Tamamlandı");
+
+                }catch (Exception e1){
+                    e1.printStackTrace();
+                }
+            }
+            else {
+                System.out.print("not uploaded");
             }
         });
-
-        islemButon.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(uploaded){
-                    BInterpolation bInterpolation=new BInterpolation();
-                    newImage=bInterpolation.scale(image,1.6f,1.6f);
-                    File newFile=new File("larger2.jpg");
-                    try {
-                        ImageIO.write(newImage,"jpg",newFile);
-                        System.out.print("Tamamlandı");
-
-                    }catch (Exception e1){
-                        e1.printStackTrace();
-                    }
-
-                }
-                else {
-                    System.out.print("not uploaded");
-                }
-
-            }
-        });
-
-
-
-
     }
 
     public void Action(){
