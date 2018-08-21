@@ -15,7 +15,6 @@ public class Gui extends JFrame {
     private boolean uploaded=false;
     public Gui(){
         super("ImageScale");
-
         JButton upload=new JButton("Upload Image");
         upload.setBounds(400,10,150,35);
         label=new JLabel();
@@ -24,9 +23,7 @@ public class Gui extends JFrame {
         add(upload);
         add(islemButon);
         add(label);
-
         upload.addActionListener(e -> Action());
-
         islemButon.addActionListener(e -> {
             if(uploaded){
                 BInterpolation bInterpolation=new BInterpolation();
@@ -35,7 +32,6 @@ public class Gui extends JFrame {
                 try {
                     ImageIO.write(newImage,"jpg",newFile);
                     System.out.print("Tamamlandı");
-
                 }catch (Exception e1){
                     e1.printStackTrace();
                 }
@@ -45,7 +41,6 @@ public class Gui extends JFrame {
             }
         });
     }
-
     public void Action(){
         JFileChooser chooser=new JFileChooser();
         chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
@@ -64,14 +59,12 @@ public class Gui extends JFrame {
                         width=(width*3)/4;
                         height=(height*3)/4;
                     }
-
                     System.out.println(width+"-"+height);
                     ImageIcon newIcon=new ImageIcon(image);
                     Image newImage=newIcon.getImage();
                     Image newestImage=newImage.getScaledInstance((int)width,(int)height,Image.SCALE_SMOOTH);
                     newIcon=new ImageIcon(newestImage);
                     label.setIcon(newIcon);
-
                 }
                 else {
                     System.out.print("else");
@@ -79,19 +72,12 @@ public class Gui extends JFrame {
                     label.setBounds(50,50,image.getWidth(),image.getHeight());
                     icon=new ImageIcon(image);
                     label.setIcon(icon);
-
                 }
                 //System.out.print(image.getRGB(0,0));
                 uploaded=true;
-
             }catch (Exception e1){
                 e1.printStackTrace();
             }
-
         }
-
     }
-
-
-
 }
