@@ -2,7 +2,6 @@ package g;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +12,6 @@ public class Gui extends JFrame {
     private JLabel label;
     private ImageIcon icon;
     private BufferedImage image,newImage;
-    ProgressMonitor monitor;
     private boolean uploaded=false;
     public Gui(){
         super("ImageScale");
@@ -21,7 +19,6 @@ public class Gui extends JFrame {
         JButton upload=new JButton("Upload Image");
         upload.setBounds(400,10,150,35);
         label=new JLabel();
-        //label.setBorder(BorderFactory.createLineBorder(Color.black));
         JButton islemButon=new JButton("Islem");
         islemButon.setBounds(400,50,150, 35);
         add(upload);
